@@ -3,7 +3,8 @@ name: SetStatus
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '0 15 * * *'
+    - cron: '0 22 * * *'
 
 jobs:
   set-status:
@@ -25,4 +26,3 @@ jobs:
           TARGET_URL: ${{secrets.TARGET_URL}}
           USER_EMAIL: ${{secrets.USER_EMAIL}}
           USER_PASSWORD: ${{secrets.USER_PASSWORD}}
-

@@ -73,7 +73,10 @@ const main = async () => {
     await page.$eval($.removeUserStatusButton, btn => btn.click())
       .catch(() => console.log('📌 Empty User status → 변경 예정'))
 
-    switch (now) {
+    // 7시가 넘으면 설정 사라지게, 아니면 근무일별 설정
+    const workday = (moment().hours() < 6) ? 0 : now
+
+    switch (workday) {
       // on tue, thu
       case 2:
       case 4:
